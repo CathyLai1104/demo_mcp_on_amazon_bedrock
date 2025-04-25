@@ -6,8 +6,6 @@
   - 如果要清空服務器端歷史，需要發起`POST v1/remove/history`請求
   - 注意如果是升級安裝，需要運行`uv sync`更新依賴環境
 
-- Demo Vides
-![alt text](assets/demo_videos.png)
 > ChatBot 是大模型時代最常見的應用形態，但受限於大模型無法獲取及時信息、無法操作外部系統等，使得 ChatBot 應用場景相對有限。後來隨著 Function Calling/Tool Use 功能推出，大模型能夠跟外部系統交互，但弊端在於大模型業務邏輯和 Tool 開發都是緊密耦合的，無法發揮出 Tool 端規模化的效率。Anthropic 2024 年 11 月底推出 [MCP](https://www.anthropic.com/news/model-context-protocol) 打破了這一局面，引入整個社區的力量在 Tool 端規模化發力，目前已經有開源社區、各路廠商等開發了豐富的 [MCP server](https://github.com/modelcontextprotocol/servers)，使得 Tool 端蓬勃發展。終端用戶即插即用就可將其集成到自己的 ChatBot 中，極大延展了 ChatBot UI 的能力，有種 ChatBot 一統各種系統 UI 的趨勢。
 - MCP 如何工作  
 ![alt text](assets/mcp_how.png)  
