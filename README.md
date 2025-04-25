@@ -1,21 +1,18 @@
 # MCP on Amazon Bedrock[[English Readme](./README.en.md)]
-### 更新日志
-- [20250419] Keep Server Session 功能，可以在服务器端保存session所有历史消息，包括（Tool use历史）
-  - UI开启方法：UI上通过`Keep Session on Server`开关控制,点击`Clear Conversion`时，会向服务端发起`v1/remove/history`请求清空服务器session消息。
-  - 如果直接使用服务端接口，在ChatCompletionRequest中加入keep_session=True,表示在服务端保存，messages中只需要传入system和最新的user 即可，无须再传入历史消息。
-  - 如果要清空服务器端历史，需要发起`POST v1/remove/history`请求
-  
-- [20250418] 新增中国区硅基流动deepseek v3模型支持，新增sse server支持
-  - 注意如果是升级安装，需要运行`uv sync`更新依赖环境
+### 更新日誌
+- [20250419] Keep Server Session 功能，可以在服務器端保存session所有歷史消息，包括（Tool use歷史）
+  - UI開啓方法：UI上通過`Keep Session on Server`開關控制,點擊`Clear Conversion`時，會向服務端發起`v1/remove/history`請求清空服務器session消息。
+  - 如果直接使用服務端接口，在ChatCompletionRequest中加入keep_session=True,表示在服務端保存，messages中只需要傳入system和最新的user 即可，無須再傳入歷史消息。
+  - 如果要清空服務器端歷史，需要發起`POST v1/remove/history`請求
+  - 注意如果是升級安裝，需要運行`uv sync`更新依賴環境
 
 - Demo Vides
 ![alt text](assets/demo_videos.png)
-
-> ChatBot 是大模型时代最常见的应用形态，但受限于大模型无法获取及时信息、无法操作外部系统等，使得 ChatBot 应用场景相对有限。后来随着 Function Calling/Tool Use 功能推出，大模型能够跟外部系统交互，但弊端在于大模型业务逻辑和 Tool 开发都是紧密耦合的，无法发挥出 Tool 端规模化的效率。Anthropic 2024 年 11 月底推出 [MCP](https://www.anthropic.com/news/model-context-protocol) 打破了这一局面，引入整个社区的力量在 Tool 端规模化发力，目前已经有开源社区、各路厂商等开发了丰富的 [MCP server](https://github.com/modelcontextprotocol/servers)，使得 Tool 端蓬勃发展。终端用户即插即用就可将其集成到自己的 ChatBot 中，极大延展了 ChatBot UI 的能力，有种 ChatBot 一统各种系统 UI 的趋势。
+> ChatBot 是大模型時代最常見的應用形態，但受限於大模型無法獲取及時信息、無法操作外部系統等，使得 ChatBot 應用場景相對有限。後來隨著 Function Calling/Tool Use 功能推出，大模型能夠跟外部系統交互，但弊端在於大模型業務邏輯和 Tool 開發都是緊密耦合的，無法發揮出 Tool 端規模化的效率。Anthropic 2024 年 11 月底推出 [MCP](https://www.anthropic.com/news/model-context-protocol) 打破了這一局面，引入整個社區的力量在 Tool 端規模化發力，目前已經有開源社區、各路廠商等開發了豐富的 [MCP server](https://github.com/modelcontextprotocol/servers)，使得 Tool 端蓬勃發展。終端用戶即插即用就可將其集成到自己的 ChatBot 中，極大延展了 ChatBot UI 的能力，有種 ChatBot 一統各種系統 UI 的趨勢。
 - MCP 如何工作  
 ![alt text](assets/mcp_how.png)  
 
-- 基于AWS的MCP企业架构设计思路  
+- 基於AWS的MCP企業架構設計思路  
 ![alt text](assets/image-aws-arch.png)
 
 - 本项目提供基于 **Bedrock** 中Nova,Claude等大模型的 ChatBot 交互服务，同时引入 **MCP**，极大增强并延伸 ChatBot 形态产品的应用场景，可支持本地文件系统、数据库、开发工具、互联网检索等无缝接入。如果说包含大模型的 ChatBot 相当于大脑的话，那引入 MCP 后就相当于装上了胳膊腿，真正让大模型动起来、跟各种现存系统和数据联通。  
